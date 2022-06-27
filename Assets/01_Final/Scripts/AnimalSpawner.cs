@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManagerX : MonoBehaviour
+public class AnimalSpawner : MonoBehaviour
 {
     public GameObject[] animalPrefabs;
     private float startDelay = 2;

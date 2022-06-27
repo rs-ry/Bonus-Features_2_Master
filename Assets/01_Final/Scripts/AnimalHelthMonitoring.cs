@@ -3,14 +3,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class AnimalHungerX : MonoBehaviour
+public class AnimalHelthMonitoring : MonoBehaviour
 {
     public Transform sliderPos;
     public GameObject sliderCanvasPref;
     public string healthSliderName = "HealthSlider-";
     public Vector3 originalScale;
 
-    DetectCollisionsX health;
+    ObjectScaling health;
 
     public GameObject[] players;
 
@@ -20,7 +20,7 @@ public class AnimalHungerX : MonoBehaviour
 
     private void Start()
     {
-        health = GetComponent<DetectCollisionsX>();
+        health = GetComponent<ObjectScaling>();
 
 
 

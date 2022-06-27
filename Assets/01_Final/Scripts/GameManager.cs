@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-#region Added for Hard Challenge
 public class GameManager : MonoBehaviour
 {
     private int score = 0;
@@ -18,6 +17,20 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public float UnderFeedValue(float downRange, float currentX, float min)
+    {
+        float onePercent = downRange * 0.01f;
+        float dynamicRange = currentX - min; // currentXSize - minSize;
+        return 100 - dynamicRange / onePercent;
+    }
+
+    public float OverFeedValue(float upRange, float max, float currentX)
+    {
+        float onePercent = upRange * 0.01f;
+        float dynamicRange = max - currentX;
+        return 100 - dynamicRange / onePercent;
     }
 
 
@@ -39,4 +52,3 @@ public class GameManager : MonoBehaviour
         Debug.Log("Score = " + score);
     }
 }
-#endregion

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DetectCollisionsX : MonoBehaviour
+public class ObjectScaling : MonoBehaviour
 {
     public float starvationTimeStep = 1f;
     public float timer = 0.0f;
@@ -26,12 +26,12 @@ public class DetectCollisionsX : MonoBehaviour
     public float overFeedSliderVal;
 
     public GameObject managerObject;
-    GameManagerX gameManager;
+    GameManager gameManager;
     private void Start()
     {
         managerObject = GameObject.Find("GameManager");
 
-        gameManager = managerObject.GetComponent<GameManagerX>();
+        gameManager = managerObject.GetComponent<GameManager>();
 
         healthySize = transform.localScale.x;
 

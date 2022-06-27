@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-public class PlayerControllerX : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public string youR_OnSide, activeFwBwAxis, activeTurnAxis;
     string actionStr;

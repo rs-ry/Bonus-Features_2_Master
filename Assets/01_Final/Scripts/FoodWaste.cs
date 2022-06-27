@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyOutOfBoundsX : MonoBehaviour
+public class FoodWasteRegister : MonoBehaviour
 {
     private float zBound = 145;
 
@@ -10,12 +10,12 @@ public class DestroyOutOfBoundsX : MonoBehaviour
 
     public float projectileSpeed;
 
-    private GameManagerX gameManager;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerX>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame

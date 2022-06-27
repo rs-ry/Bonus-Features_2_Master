@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForwardX : MonoBehaviour
+public class AnimalPath : MonoBehaviour
 {
     public float maxSpeed = 10;
     public float rotationY_Speed = 10;
