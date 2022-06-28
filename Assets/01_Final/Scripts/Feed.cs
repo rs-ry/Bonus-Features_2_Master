@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoodWasteRegister : MonoBehaviour
+public class Feed : MonoBehaviour
 {
     private float zBound = 145;
 

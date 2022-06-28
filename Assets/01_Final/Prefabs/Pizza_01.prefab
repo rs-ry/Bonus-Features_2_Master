@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8077819148440505286}
   - component: {fileID: 8077819148440505403}
   - component: {fileID: 8077819148440505402}
-  - component: {fileID: 978986531949943763}
+  - component: {fileID: 1122028943484992234}
   m_Layer: 0
   m_Name: Pizza_01
   m_TagString: Food
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &978986531949943763
+--- !u!114 &1122028943484992234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
