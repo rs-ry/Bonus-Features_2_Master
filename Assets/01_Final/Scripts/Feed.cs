@@ -10,12 +10,10 @@ public class Feed : MonoBehaviour
 
     public float projectileSpeed;
 
-    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -35,19 +33,19 @@ public class Feed : MonoBehaviour
         }
         else if (transform.position.z < -zBound)
         {
-            gameManager.AddLives(-1);
+            GameManager.instance.AddLives(-1);
 
             Destroy(gameObject);
         }
         else if (transform.position.x > xBound)        //Check if we are off the screen to the right
         {
-            gameManager.AddLives(-1);
+            GameManager.instance.AddLives(-1);
 
             Destroy(gameObject);
         }
         else if (transform.position.x < -xBound)        //Check if we are off the screen to the left
         {
-            gameManager.AddLives(-1);
+            GameManager.instance.AddLives(-1);
             Destroy(gameObject);
         }
     }

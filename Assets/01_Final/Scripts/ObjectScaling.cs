@@ -25,14 +25,8 @@ public class ObjectScaling : MonoBehaviour
     public float underFeedSliderVal;
     public float overFeedSliderVal;
 
-    public GameObject managerObject;
-    GameManager gameManager;
     private void Start()
     {
-        managerObject = GameObject.Find("GameManager");
-
-        gameManager = managerObject.GetComponent<GameManager>();
-
         healthySize = transform.localScale.x;
 
         dfltDdownScalingRange = healthySize - minSize;
@@ -42,9 +36,9 @@ public class ObjectScaling : MonoBehaviour
 
     void Update()
     {
-        underFeedSliderVal = gameManager.UnderFeedValue(dfltDdownScalingRange, currentXSize, minSize);
+        underFeedSliderVal = GameManager.instance.UnderFeedValue(dfltDdownScalingRange, currentXSize, minSize);
 
-        overFeedSliderVal = gameManager.OverFeedValue(dfltUpScalingRange, maxSize, currentXSize);
+        overFeedSliderVal = GameManager.instance.OverFeedValue(dfltUpScalingRange, maxSize, currentXSize);
 
         currentXSize = gameObject.transform.localScale.x;
 
