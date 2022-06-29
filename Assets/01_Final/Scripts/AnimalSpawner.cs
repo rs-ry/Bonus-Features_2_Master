@@ -5,31 +5,33 @@ using UnityEngine;
 public class AnimalSpawner : MonoBehaviour
 {
     public GameObject[] animalPrefabs;
-    private float startDelay = 2;
-    private float spawnInterval = 5f;
-
+    public int totalOnGround = 7;
+    List<Transform> onGroundPrefabs;
     public Transform spawnPoint;
 
-    // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnAtThePoint", startDelay, spawnInterval);
+        totalOnGround = 7 - 1;
+        StartCoroutine(SpawnLoop());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator SpawnLoop()
     {
+        while (true)
+        {
+            yield return new WaitForSeconds(8);
 
-    }
+            if (onGroundPrefabs.Count > totalOnGround) continue;
 
-    void SpawnAtThePoint()
-    {
-        int animalIndex = Random.Range(0, animalPrefabs.Length);
+            int animalIndex = Random.Range(0, animalPrefabs.Length);
 
-        Vector3 spawnPos = new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, spawnPoint.transform.position.z);
+            Vector3 spawnPos = new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, spawnPoint.transform.position.z);
 
-        Vector3 rotation = new Vector3(0, 90, 0);
+            Vector3 rotation = new Vector3(0, 90, 0);
 
-        Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(rotation));
+            var gObj = Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(rotation)) as GameObject;
+
+            onGroundPrefabs.Add(gObj.transform);
+        }
     }
 }
