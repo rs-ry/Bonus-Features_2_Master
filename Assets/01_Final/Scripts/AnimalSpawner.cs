@@ -5,13 +5,17 @@ using UnityEngine;
 public class AnimalSpawner : MonoBehaviour
 {
     public GameObject[] animalPrefabs;
-    public int totalOnGround = 7;
-    List<Transform> onGroundPrefabs;
+    public int setMax = 7;
+    int applyMaxToList;
+    List<GameObject> onGroundPrefabs = new List<GameObject>();
     public Transform spawnPoint;
+    public int spawnInterval;
+    public int totalOnGround;
+
 
     void Start()
     {
-        totalOnGround = 7 - 1;
+        applyMaxToList = setMax - 1;
         StartCoroutine(SpawnLoop());
     }
 
@@ -19,9 +23,11 @@ public class AnimalSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(8);
+            yield return new WaitForSeconds(spawnInterval);
 
-            if (onGroundPrefabs.Count > totalOnGround) continue;
+            totalOnGround = onGroundPrefabs.Count;
+
+            if (totalOnGround > applyMaxToList) continue;
 
             int animalIndex = Random.Range(0, animalPrefabs.Length);
 
@@ -31,7 +37,7 @@ public class AnimalSpawner : MonoBehaviour
 
             var gObj = Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(rotation)) as GameObject;
 
-            onGroundPrefabs.Add(gObj.transform);
+            onGroundPrefabs.Add(gObj);
         }
     }
 }

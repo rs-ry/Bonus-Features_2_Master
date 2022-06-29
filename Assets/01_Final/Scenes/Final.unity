@@ -156,8 +156,10 @@ MonoBehaviour:
   - {fileID: 383919385445757159, guid: 62f5e005cb5581545958088c99f0a533, type: 3}
   - {fileID: 8927606436079826440, guid: 7569339c15035374a96fa01b759edaaf, type: 3}
   - {fileID: 4560778321734676852, guid: fd31f43b4a862f64a8cbcf55092fb70d, type: 3}
-  totalOnGround: 7
+  setMax: 2
   spawnPoint: {fileID: 168901656}
+  spawnInterval: 5
+  totalOnGround: 0
 --- !u!4 &168901656
 Transform:
   m_ObjectHideFlags: 0
