@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int score = 0;
-    private int lives = 3;
-
     public static GameManager instance; // Class member declaration
 
-    public Color TeamColor; // new variable declared
-
     private void Awake()
-    {
-        // start of new code
+    {                               // start of new code
         if (instance != null)
         {
             Destroy(gameObject);
             return;
-        }
-        // end of new code
-
+        }                           // end of new code
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    private int score = 0;
+    private int lives = 3;
+
+    public int  currentlyOnGround;
 
     // Start is called before the first frame update
     void Start()

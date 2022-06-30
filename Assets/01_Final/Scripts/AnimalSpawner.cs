@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AnimalSpawner : MonoBehaviour
@@ -10,8 +11,6 @@ public class AnimalSpawner : MonoBehaviour
     List<GameObject> onGroundPrefabs = new List<GameObject>();
     public Transform spawnPoint;
     public int spawnInterval;
-    public int totalOnGround;
-
 
     void Start()
     {
@@ -24,10 +23,8 @@ public class AnimalSpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(spawnInterval);
-
-            totalOnGround = onGroundPrefabs.Count;
-
-            if (totalOnGround > applyMaxToList) continue;
+        
+            if (onGroundPrefabs.Count > applyMaxToList) continue;
 
             int animalIndex = Random.Range(0, animalPrefabs.Length);
 
@@ -39,5 +36,10 @@ public class AnimalSpawner : MonoBehaviour
 
             onGroundPrefabs.Add(gObj);
         }
+    }
+
+    private void Update()
+    {
+        GameManager.instance.currentlyOnGround = onGroundPrefabs.Count;
     }
 }
