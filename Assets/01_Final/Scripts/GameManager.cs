@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        currentQtyTxt.text = "Animalson to feed " + currentQty.ToString();
     }
 
     public float UnderFeedValue(float downRange, float currentX, float min)

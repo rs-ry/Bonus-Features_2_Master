@@ -10,7 +10,7 @@ public class GameHandler : MonoBehaviour
     public string healthSliderName = "HealthSlider-";
     public Vector3 originalScale;
 
-    ObjectScaling health;
+    ObjectScaling objectHealth;
 
     public GameObject[] players;
 
@@ -20,7 +20,7 @@ public class GameHandler : MonoBehaviour
 
     private void Start()
     {
-        health = GetComponent<ObjectScaling>();
+        objectHealth = GetComponent<ObjectScaling>();
 
 
 
@@ -91,16 +91,16 @@ public class GameHandler : MonoBehaviour
             currentScale = originalScale;
 
 
-            // Debug.Log("Min=> " + health.underFeedSliderVal + "   Max=> " + health.overFeedSliderVal);
+            Debug.Log("Min=> " + objectHealth.underFeedSliderVal + "   Max=> " + objectHealth.overFeedSliderVal);
 
             string underSlider = "HealthSlider-" + i.ToString() + "/UnderGrowthSlider";
             GameObject underGrowthSlider = gameObject.transform.Find(underSlider).gameObject;
             if (underGrowthSlider == true)
             {
                 Slider minSlider = underGrowthSlider.GetComponent<Slider>();   // and get slider component
-                if ((health.currentXSize < health.maxSize) && (health.currentXSize > health.minSize))
+                if ((objectHealth.currentXSize < objectHealth.maxSize) && (objectHealth.currentXSize > objectHealth.minSize))
                 {
-                    minSlider.value = health.underFeedSliderVal;
+                    minSlider.value = objectHealth.underFeedSliderVal;
                 }
             }
             else
@@ -111,9 +111,9 @@ public class GameHandler : MonoBehaviour
             if (overGrowthSlider == true)
             {
                 Slider maxSlider = overGrowthSlider.GetComponent<Slider>();   // and get slider component
-                if ((health.currentXSize < health.maxSize) && (health.currentXSize > health.minSize))
+                if ((objectHealth.currentXSize < objectHealth.maxSize) && (objectHealth.currentXSize > objectHealth.minSize))
                 {
-                    maxSlider.value = health.overFeedSliderVal;
+                    maxSlider.value = objectHealth.overFeedSliderVal;
                 }
             }
             else
