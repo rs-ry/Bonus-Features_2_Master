@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class AnimalSpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public GameObject[] animalPrefabs;
     public int setMax = 7;
@@ -40,6 +40,6 @@ public class AnimalSpawner : MonoBehaviour
 
     private void Update()
     {
-        GameManager.instance.currentlyOnGround = onGroundPrefabs.Count;
+        GameManager.instance.currentQty = onGroundPrefabs.Count;
     }
 }

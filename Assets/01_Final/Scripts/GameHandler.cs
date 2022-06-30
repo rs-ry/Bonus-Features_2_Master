@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class AnimalHelthMonitoring : MonoBehaviour
+public class GameHandler : MonoBehaviour
 {
     public Transform sliderPos;
     public GameObject sliderCanvasPref;

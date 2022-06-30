@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +20,10 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private int lives = 3;
 
-    public int  currentlyOnGround;
+    public int  currentQty;
+    public TMP_Text currentQtyTxt;
+    public TMP_Text scoreValue;
+    public TMP_Text highScore;
 
     // Start is called before the first frame update
     void Start()
