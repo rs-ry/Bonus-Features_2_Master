@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Shoot by " + actionStr);
             Instantiate(projectilePrefab, projectileSpawnPoint.position, transform.rotation);
+
+            GameManager.instance.GivenFeeds(1);
+
         }
     }
 

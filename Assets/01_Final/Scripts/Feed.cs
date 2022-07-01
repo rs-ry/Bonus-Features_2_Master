@@ -22,39 +22,23 @@ public class Feed : MonoBehaviour
         ProjectileForwardMovement();
 
         OutOfBondDestroyer();
-
-    }
-
-    void OutOfBondDestroyer()
-    {
-        if (transform.position.z > zBound)  // If an object goes past the players view in the game, remove that object
-        {
-            Destroy(gameObject);
-        }
-        else if (transform.position.z < -zBound)
-        {
-            GameManager.instance.AddLives(-1);
-
-            Destroy(gameObject);
-        }
-        else if (transform.position.x > xBound)        //Check if we are off the screen to the right
-        {
-            GameManager.instance.AddLives(-1);
-
-            Destroy(gameObject);
-        }
-        else if (transform.position.x < -xBound)        //Check if we are off the screen to the left
-        {
-            GameManager.instance.AddLives(-1);
-            Destroy(gameObject);
-        }
     }
 
     void ProjectileForwardMovement()
     {
         gameObject.transform.Translate(Vector3.forward * Time.deltaTime * projectileSpeed);
-
     }
+
+    void OutOfBondDestroyer()
+    {
+        if ((transform.position.z > zBound) || (transform.position.z < -zBound) || (transform.position.x > xBound) || (transform.position.x < -xBound))
+        {
+            Destroy(gameObject);
+            GameManager.instance.WastedFeeds(1);
+        }
+    }
+
+
 }
 
 

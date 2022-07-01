@@ -297,7 +297,6 @@ GameObject:
   - component: {fileID: 4560778321734461190}
   - component: {fileID: 4560778321744362090}
   - component: {fileID: 3267639879065992604}
-  - component: {fileID: 23201932450698017}
   - component: {fileID: 7096435317499387578}
   - component: {fileID: 3054240523790943277}
   - component: {fileID: 6291460704546985771}
@@ -367,24 +366,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 0.42, z: 0.54}
   m_Center: {x: 0, y: 0.2, z: 0.06}
---- !u!114 &23201932450698017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4560778321734676852}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d62b24c6b0dfdf1418e9ee574593d294, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 8
-  rotationY_Speed: 10
-  randomPos_LH: {x: 0, y: 0, z: 0}
-  currentPosInUse_LH: {x: 0, y: 0, z: 0}
-  default_LH: {fileID: 0}
-  backToDefault: 1
 --- !u!114 &7096435317499387578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,11 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
-  rotationY_Speed: 10
-  randomPos_LH: {x: 0, y: 0, z: 0}
-  currentPosInUse_LH: {x: 0, y: 0, z: 0}
-  default_LH: {fileID: 0}
-  backToDefault: 1
+  rotationY_Speed: 8
 --- !u!114 &3054240523790943277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,7 +405,6 @@ MonoBehaviour:
   currentXSize: 0
   underFeedSliderVal: 0
   overFeedSliderVal: 0
-  managerObject: {fileID: 0}
 --- !u!114 &6291460704546985771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,9 +419,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderPos: {fileID: 1037882976312606141}
   sliderCanvasPref: {fileID: 7194251735663577965, guid: cf3bb95bd82c2fe4483b1ff211743828, type: 3}
+  healthSliderName: HealthSlider-
   originalScale: {x: 0, y: 0, z: 0}
   players: []
-  allCanvas: []
 --- !u!1 &4560778321734680968
 GameObject:
   m_ObjectHideFlags: 0

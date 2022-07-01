@@ -18,33 +18,82 @@ public class GameManager : MonoBehaviour
     }
 
     private int score = 0;
-    private int lives = 3;
+    TMP_Text highScore;
 
-    public int  currentQty;
-    public TMP_Text currentQtyTxt;
-    public TMP_Text scoreValue;
-    public TMP_Text highScore;
+    private int totalSpawns;
+    public TMP_Text totalSpawnsTxt;
 
-    // Start is called before the first frame update
+    int givenFeeds;
+    public TMP_Text givenFeedsTxt;
+
+    public int  currentlyToFeed;
+    public TMP_Text currentlyToFeedTxt;
+
+    private int successfullFeeds;
+    public TMP_Text successfullFeedsTxt;
+
+    private int wastedFeeds;
+    public TMP_Text wastedFeedsTxt;
+
     void Start()
     {
-
+        givenFeeds = 0;
+        successfullFeeds = 0;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        currentQtyTxt.text = "Animalson to feed " + currentQty.ToString();
+        currentlyToFeedTxt.text = "Animals to feed " + currentlyToFeed.ToString();
+
     }
 
-    public float UnderFeedValue(float downRange, float currentX, float min)
+    public void GivenFeeds(int value)
+    {
+        givenFeeds += value;
+        givenFeedsTxt.text = "Food sent out " + givenFeeds.ToString();
+
+    }
+
+    public void WastedFeeds(int wasted)
+    {
+        wastedFeeds += wasted;
+        wastedFeedsTxt.text = "Foodwaste " + wastedFeeds.ToString();
+
+    }
+
+    public void SuccessFeeds(int success)
+    {
+        successfullFeeds += success;
+        successfullFeedsTxt.text = "Success feeds " + successfullFeeds.ToString();
+
+    }
+
+    public void SpwnwedInWholePlay(int aSpawn)
+    {
+        totalSpawns += aSpawn;
+        totalSpawnsTxt.text = "Total Spawns " + totalSpawns.ToString();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public float DownScaleValue(float downRange, float currentX, float min)
     {
         float onePercent = downRange * 0.01f;
         float dynamicRange = currentX - min; // currentXSize - minSize;
         return 100 - dynamicRange / onePercent;
     }
 
-    public float OverFeedValue(float upRange, float max, float currentX)
+    public float UpScaleValue(float upRange, float max, float currentX)
     {
         float onePercent = upRange * 0.01f;
         float dynamicRange = max - currentX;
@@ -52,17 +101,25 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void AddLives(int value)
-    {
-        lives += value;
 
-        if (lives <= 0)
-        {
-            Debug.Log("Game Over");
-            lives = 0;
-        }
-        Debug.Log("Lives = " + lives);
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void AddScore(int value)
     {

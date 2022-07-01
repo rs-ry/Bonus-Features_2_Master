@@ -10,7 +10,7 @@ public class GameHandler : MonoBehaviour
     public string healthSliderName = "HealthSlider-";
     public Vector3 originalScale;
 
-    ObjectScaling objectHealth;
+    ScalingObject objectHealth;
 
     public GameObject[] players;
 
@@ -20,7 +20,7 @@ public class GameHandler : MonoBehaviour
 
     private void Start()
     {
-        objectHealth = GetComponent<ObjectScaling>();
+        objectHealth = GetComponent<ScalingObject>();
 
 
 

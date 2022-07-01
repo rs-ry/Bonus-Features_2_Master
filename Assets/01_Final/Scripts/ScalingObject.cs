@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ObjectScaling : MonoBehaviour
+public class ScalingObject : MonoBehaviour
 {
     public float starvationTimeStep = 1f;
     public float timer = 0.0f;
@@ -36,13 +36,13 @@ public class ObjectScaling : MonoBehaviour
 
     void Update()
     {
-        underFeedSliderVal = GameManager.instance.UnderFeedValue(dfltDdownScalingRange, currentXSize, minSize);
+        underFeedSliderVal = GameManager.instance.DownScaleValue(dfltDdownScalingRange, currentXSize, minSize);
 
-        overFeedSliderVal = GameManager.instance.OverFeedValue(dfltUpScalingRange, maxSize, currentXSize);
+        overFeedSliderVal = GameManager.instance.UpScaleValue(dfltUpScalingRange, maxSize, currentXSize);
 
         currentXSize = gameObject.transform.localScale.x;
 
-        ProcessUnderFeeding();
+        ProcessDownScale();
 
         MonitoringHealth();
     }
@@ -52,12 +52,14 @@ public class ObjectScaling : MonoBehaviour
     {
         if (other.CompareTag("Food"))
         {
-            ProcessFeeding();
-            Destroy(other.gameObject);
+            ProcessUpScale();
+            GameManager.instance.SuccessFeeds(1);
+
+            Destroy(other.gameObject);                  // destroy food (pizza, other)
         }
     }
 
-    void ProcessUnderFeeding()
+    void ProcessDownScale()
     {
         timer += Time.deltaTime;
 
@@ -70,10 +72,10 @@ public class ObjectScaling : MonoBehaviour
         }
     }
 
-    void ProcessFeeding()
+    void ProcessUpScale()
     {
         gameObject.transform.localScale += upScalingStep;
-        Debug.Log("You have been fed.");
+        Debug.Log("Attempt to feed.");
     }
 
     // Register Helth and Deth statuss

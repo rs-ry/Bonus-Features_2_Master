@@ -1061,11 +1061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 8
-  rotationY_Speed: 10
-  randomPos_LH: {x: 0, y: 0, z: 0}
-  currentPosInUse_LH: {x: 0, y: 0, z: 0}
-  default_LH: {fileID: 0}
-  backToDefault: 1
+  rotationY_Speed: 8
 --- !u!114 &6018906768408183691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1091,7 +1087,6 @@ MonoBehaviour:
   currentXSize: 0
   underFeedSliderVal: 0
   overFeedSliderVal: 0
-  managerObject: {fileID: 0}
 --- !u!114 &7077545727260399544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,9 +1101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderPos: {fileID: 8661320775205267944}
   sliderCanvasPref: {fileID: 7194251735663577965, guid: cf3bb95bd82c2fe4483b1ff211743828, type: 3}
+  healthSliderName: HealthSlider-
   originalScale: {x: 0, y: 0, z: 0}
   players: []
-  allCanvas: []
 --- !u!1 &8927606436079828018
 GameObject:
   m_ObjectHideFlags: 0
