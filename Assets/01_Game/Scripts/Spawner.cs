@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
         else
             Debug.Log("List is not renewing!");
 
-        GameManager.instance.currentlyToFeed = onGroundPrefabs.Count;
+        UI_Manager.Instance.currentlyToFeed = onGroundPrefabs.Count;
     }
 
     void CountInstantiations(int animalIndex, Vector3 spawnPos, Vector3 rotation)
@@ -52,7 +52,7 @@ public class Spawner : MonoBehaviour
 
         onGroundPrefabs.Add(gObj);
 
-        GameManager.instance.SpwnwedInWholePlay(1);
+        UI_Manager.Instance.SpwnwedInWholePlay(1);
     }
 
 }

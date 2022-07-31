@@ -22,7 +22,7 @@ public class GameHandler : MonoBehaviour
 
 
 
-        players = GameObject.FindGameObjectsWithTag(GameManager.instance.playersTag);
+        players = GameObject.FindGameObjectsWithTag(UI_Manager.Instance.playersTag);
         playerQTY = players.Length;
         Debug.Log("Playerqty is " + playerQTY);
         if (playerQTY > 0)

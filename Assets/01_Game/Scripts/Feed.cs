@@ -34,7 +34,7 @@ public class Feed : MonoBehaviour
         if ((transform.position.z > zBound) || (transform.position.z < -zBound) || (transform.position.x > xBound) || (transform.position.x < -xBound))
         {
             Destroy(gameObject);
-            GameManager.instance.WastedFeeds(1);
+            UI_Manager.Instance.WastedFeeds(1);
         }
     }
 

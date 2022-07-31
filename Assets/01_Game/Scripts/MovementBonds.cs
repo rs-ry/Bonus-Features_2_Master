@@ -10,7 +10,6 @@ public class MovementBonds : MonoBehaviour
     float xRange;
     float zRange;
     float xPos;
-    float yPos;
     float zPos;
 
     public GameObject[] myObjs;
@@ -18,7 +17,7 @@ public class MovementBonds : MonoBehaviour
 
     void Start()
     {
-        myObjs = GameObject.FindGameObjectsWithTag(GameManager.instance.playersTag);
+        myObjs = GameObject.FindGameObjectsWithTag(UI_Manager.Instance.playersTag);
         myTerrain = GetComponent<Terrain>();
 
         if (myTerrain)
@@ -28,7 +27,6 @@ public class MovementBonds : MonoBehaviour
             zRange = terrainSize.z / 2;
 
             xPos = gameObject.transform.position.x + xRange;
-            yPos = 0;
             zPos = gameObject.transform.position.z + zRange;
         }
         else

@@ -36,9 +36,9 @@ public class ScalingObject : MonoBehaviour
 
     void Update()
     {
-        underFeedSliderVal = GameManager.instance.DownScaleValue(dfltDdownScalingRange, currentXSize, minSize);
+        underFeedSliderVal = DownScaleValue(dfltDdownScalingRange, currentXSize, minSize);
 
-        overFeedSliderVal = GameManager.instance.UpScaleValue(dfltUpScalingRange, maxSize, currentXSize);
+        overFeedSliderVal = UpScaleValue(dfltUpScalingRange, maxSize, currentXSize);
 
         currentXSize = gameObject.transform.localScale.x;
 
@@ -53,7 +53,7 @@ public class ScalingObject : MonoBehaviour
         if (other.CompareTag("Food"))
         {
             ProcessUpScale();
-            GameManager.instance.SuccessFeeds(1);
+            UI_Manager.Instance.SuccessFeeds(1);
 
             Destroy(other.gameObject);                  // destroy food (pizza, other)
         }
@@ -91,6 +91,24 @@ public class ScalingObject : MonoBehaviour
             Destroy(gameObject, 0f); Debug.Log("Death coused by overfeeding!");
         }
     }
+
+
+    public float DownScaleValue(float downRange, float currentX, float min)
+    {
+        float onePercent = downRange * 0.01f;
+        float dynamicRange = currentX - min; // currentXSize - minSize;
+        return 100 - dynamicRange / onePercent;
+    }
+
+    public float UpScaleValue(float upRange, float max, float currentX)
+    {
+        float onePercent = upRange * 0.01f;
+        float dynamicRange = max - currentX;
+        return 100 - dynamicRange / onePercent;
+    }
+
+
+
     /*       
         void HelthIndicator()
         {
